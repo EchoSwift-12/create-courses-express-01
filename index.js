@@ -2,6 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const coursesRouter = require('./routes/coursesRouter')
 
 //Create an Express App
 const app = express()
@@ -13,6 +14,8 @@ app.use(cors({
     allowedHeaders:"*",
     exposedHeaders:"*"
 }))
+
+app.use('/courses',coursesRouter)
 
 //Connect MongoDB Atlas and run in PORT 8000
 const connectToDbAndStart = async () =>{
